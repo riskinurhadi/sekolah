@@ -8,14 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- CSS Pusat -->
+    <!-- CSS Pusat - V2 -->
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="sidebar-header">
+        <div class="sidebar-header text-center py-3">
             <a href="#">SekolahApp</a>
         </div>
         <nav class="nav flex-column">
@@ -37,96 +37,116 @@
             <a class="nav-link" href="#">
                 <i class="bi bi-person-circle"></i> Profil
             </a>
-            <a class="nav-link" href="../logout.php">
+            <a class="nav-link mt-auto" href="../logout.php">
                 <i class="bi bi-box-arrow-left"></i> Logout
             </a>
         </nav>
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
+    <main class="main-content">
         <!-- Header -->
-        <div class="header">
-            <h4>Selamat Datang, [Nama Siswa]!</h4>
+        <header class="header">
+            <h1 class="header-title">Selamat Datang, [Nama Siswa]!</h1>
             <div class="d-flex align-items-center">
-                <i class="bi bi-bell-fill me-3"></i>
-                <img src="https://via.placeholder.com/40" class="rounded-circle" alt="Profil">
+                <i class="bi bi-bell-fill fs-4 me-4"></i>
+                <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;" alt="Profil">
             </div>
-        </div>
+        </header>
 
         <!-- Quick Access Cards -->
-        <div class="row mb-4 quick-access-cards">
+        <section class="row mb-4 g-4 quick-access-cards">
             <div class="col-md-4">
                 <div class="card card-jadwal p-3">
-                    <h5><i class="bi bi-calendar3"></i> Jadwal Hari Ini</h5>
-                    <p>3 Mata Pelajaran</p>
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-calendar3 me-2"></i>Jadwal Hari Ini</h5>
+                        <p class="card-text fs-4 fw-bold">3 Mata Pelajaran</p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card card-tugas p-3">
-                    <h5><i class="bi bi-file-earmark-text"></i> Tugas Baru</h5>
-                    <p>1 Tugas Matematika</p>
+                     <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-file-earmark-text me-2"></i>Tugas Baru</h5>
+                        <p class="card-text fs-4 fw-bold">1 Tugas Matematika</p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card card-materi p-3">
-                    <h5><i class="bi bi-journal-bookmark-fill"></i> Materi Baru</h5>
-                    <p>2 Materi IPA</p>
+                     <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-journal-bookmark-fill me-2"></i>Materi Baru</h5>
+                        <p class="card-text fs-4 fw-bold">2 Materi IPA</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Daftar Tugas & Jadwal -->
-        <div class="row">
-            <div class="col-md-7">
+        <section class="row g-4">
+            <div class="col-lg-7">
                 <div class="card">
                     <div class="card-header">
-                        <h5><i class="bi bi-list-task"></i> Tugas yang Belum Selesai</h5>
+                        <h5 class="mb-0"><i class="bi bi-list-task me-2"></i>Tugas yang Belum Selesai</h5>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Membuat Rangkuman Bab 3 (IPA)
                             <div class="list-item-actions">
-                                <span class="badge bg-danger me-2">Tenggat Besok</span>
-                                <a href="#" class="btn btn-sm btn-primary">Lihat</a>
+                                <span class="badge text-bg-danger me-2">Tenggat Besok</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Lihat</a>
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Latihan Soal Aljabar (Matematika)
                             <div class="list-item-actions">
-                                <span class="badge bg-warning me-2">Tenggat 3 hari lagi</span>
-                                <a href="#" class="btn btn-sm btn-primary">Lihat</a>
+                                <span class="badge text-bg-warning me-2">Tenggat 3 hari lagi</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Lihat</a>
+                            </div>
+                        </li>
+                         <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Mengerjakan LKS Hal 25 (B. Inggris)
+                            <div class="list-item-actions">
+                                <span class="badge text-bg-info me-2">Tenggat Minggu Ini</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Lihat</a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-lg-5">
                 <div class="card">
                     <div class="card-header">
-                        <h5><i class="bi bi-clock-fill"></i> Jadwal Hari Ini</h5>
+                        <h5 class="mb-0"><i class="bi bi-clock-fill me-2"></i>Jadwal Hari Ini</h5>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
-                                <strong>Matematika</strong><br>
-                                <small>07:00 - 08:30 | Bpk. Budi</small>
+                                <h6 class="mb-0">Matematika</h6>
+                                <small class="text-muted">07:00 - 08:30 | Bpk. Budi</small>
                             </div>
-                            <span class="badge bg-success">Sedang Berlangsung</span>
+                            <span class="badge text-bg-success">Berlangsung</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                              <div>
-                                <strong>Bahasa Indonesia</strong><br>
-                                <small>09:00 - 10:30 | Ibu Ani</small>
+                                <h6 class="mb-0">Bahasa Indonesia</h6>
+                                <small class="text-muted">09:00 - 10:30 | Ibu Ani</small>
                             </div>
-                             <span class="badge bg-secondary">Akan Datang</span>
+                             <span class="badge text-bg-secondary">Akan Datang</span>
+                        </li>
+                         <li class="list-group-item d-flex justify-content-between align-items-center">
+                             <div>
+                                <h6 class="mb-0">IPA</h6>
+                                <small class="text-muted">10:30 - 12:00 | Bpk. Surya</small>
+                            </div>
+                             <span class="badge text-bg-secondary">Akan Datang</span>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
+    </main>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
