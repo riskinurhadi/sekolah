@@ -1,11 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siswa Dashboard</title>
+    <title>Dashboard Siswa</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- CSS Pusat -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <h1>Siswa Dashboard</h1>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <a href="#">SekolahApp</a>
+        </div>
+        <nav class="nav flex-column">
+            <a class="nav-link active" href="#">
+                <i class="bi bi-house-door-fill"></i> Beranda
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-calendar-check-fill"></i> Jadwal Pelajaran
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-book-fill"></i> Materi Pelajaran
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-pencil-square"></i> Tugas & Ujian
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-graph-up"></i> Nilai & Laporan
+            </a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-person-circle"></i> Profil
+            </a>
+            <a class="nav-link" href="../logout.php">
+                <i class="bi bi-box-arrow-left"></i> Logout
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <h4>Selamat Datang, [Nama Siswa]!</h4>
+            <div class="d-flex align-items-center">
+                <i class="bi bi-bell-fill me-3"></i>
+                <img src="https://via.placeholder.com/40" class="rounded-circle" alt="Profil">
+            </div>
+        </div>
+
+        <!-- Quick Access Cards -->
+        <div class="row mb-4 quick-access-cards">
+            <div class="col-md-4">
+                <div class="card card-jadwal p-3">
+                    <h5><i class="bi bi-calendar3"></i> Jadwal Hari Ini</h5>
+                    <p>3 Mata Pelajaran</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-tugas p-3">
+                    <h5><i class="bi bi-file-earmark-text"></i> Tugas Baru</h5>
+                    <p>1 Tugas Matematika</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-materi p-3">
+                    <h5><i class="bi bi-journal-bookmark-fill"></i> Materi Baru</h5>
+                    <p>2 Materi IPA</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daftar Tugas & Jadwal -->
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="bi bi-list-task"></i> Tugas yang Belum Selesai</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Membuat Rangkuman Bab 3 (IPA)
+                            <div class="list-item-actions">
+                                <span class="badge bg-danger me-2">Tenggat Besok</span>
+                                <a href="#" class="btn btn-sm btn-primary">Lihat</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Latihan Soal Aljabar (Matematika)
+                            <div class="list-item-actions">
+                                <span class="badge bg-warning me-2">Tenggat 3 hari lagi</span>
+                                <a href="#" class="btn btn-sm btn-primary">Lihat</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="bi bi-clock-fill"></i> Jadwal Hari Ini</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Matematika</strong><br>
+                                <small>07:00 - 08:30 | Bpk. Budi</small>
+                            </div>
+                            <span class="badge bg-success">Sedang Berlangsung</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                             <div>
+                                <strong>Bahasa Indonesia</strong><br>
+                                <small>09:00 - 10:30 | Ibu Ani</small>
+                            </div>
+                             <span class="badge bg-secondary">Akan Datang</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
