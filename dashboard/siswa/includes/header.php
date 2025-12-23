@@ -15,8 +15,8 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'siswa' && $_SESSION['ro
     <title>Dashboard Siswa - E-Learning</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
     
@@ -25,13 +25,32 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'siswa' && $_SESSION['ro
 
     <!-- Main Content -->
     <div class="main-content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow-sm mb-4">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Siswa Panel</span>
-                <div class="d-flex align-items-center">
-                    <span class="me-3">Halo, <?= htmlspecialchars($_SESSION['full_name']); ?></span>
-                    <a href="../../logout.php" class="btn btn-outline-danger btn-sm">Logout</a>
-                </div>
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
             </div>
-        </nav>
+            <div class="navbar-actions">
+                <button class="icon-btn">
+                    <i class="far fa-bell"></i>
+                </button>
+                <button class="icon-btn">
+                    <i class="far fa-comment"></i>
+                </button>
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <?= strtoupper(substr($_SESSION['full_name'], 0, 2)) ?>
+                    </div>
+                    <div class="user-info">
+                        <h6><?= htmlspecialchars($_SESSION['full_name']); ?></h6>
+                        <p>Siswa</p>
+                    </div>
+                </div>
+                <a href="../../logout.php" class="icon-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </div>
 
+        <!-- Content Area -->
+        <div class="content-wrapper">
