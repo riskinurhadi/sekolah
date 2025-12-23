@@ -64,31 +64,35 @@ $stmt = $conn->query("SELECT * FROM announcements ORDER BY created_at DESC LIMIT
 $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!-- Page Header -->
-<div class="page-header">
-    <h1>Home</h1>
-    <p>Selamat datang kembali, <?= htmlspecialchars($_SESSION['full_name']) ?>! 👋</p>
-</div>
-
-<!-- Date Filter (Optional) -->
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <div></div>
-    <div class="d-flex gap-2 align-items-center">
-        <i class="far fa-calendar"></i>
-        <span class="text-muted"><?= date('d/m/Y') ?> - <?= date('d/m/Y', strtotime('+7 days')) ?></span>
+<!-- Page Header with Analytics Title -->
+<div class="page-header-modern">
+    <div class="page-header-left">
+        <h1>Home</h1>
+        <p>Selamat datang kembali, <?= htmlspecialchars($_SESSION['full_name']) ?>! 👋</p>
+    </div>
+    <div class="page-header-right">
+        <div class="date-picker-modern">
+            <i class="far fa-calendar-alt"></i>
+            <span><?= date('d/m/Y') ?> - <?= date('d/m/Y', strtotime('+7 days')) ?></span>
+        </div>
     </div>
 </div>
 
+<!-- Analytics Section Title -->
+<div class="analytics-section-title">
+    <h2>Statistik Pembelajaran Saya</h2>
+</div>
+
 <!-- Stats Cards -->
-<div class="stat-cards-grid">
+<div class="stat-cards-grid-modern">
     <div class="stat-card-modern stat-blue">
         <div class="stat-icon-modern blue">
             <i class="fas fa-book"></i>
         </div>
         <div class="stat-content">
-            <h3><?= $total_subjects ?></h3>
-            <p>Total Mata Pelajaran</p>
-            <small class="text-muted">Semester ini</small>
+            <div class="stat-value"><?= $total_subjects ?></div>
+            <div class="stat-label">Total Mata Pelajaran</div>
+            <div class="stat-description">Semester ini</div>
         </div>
     </div>
 
@@ -97,9 +101,9 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <i class="fas fa-check-circle"></i>
         </div>
         <div class="stat-content">
-            <h3><?= $total_presence ?></h3>
-            <p>Total Kehadiran</p>
-            <small class="text-muted">Hari ini: <?= $today ?></small>
+            <div class="stat-value"><?= $total_presence ?></div>
+            <div class="stat-label">Total Kehadiran</div>
+            <div class="stat-description">Hari ini: <?= $today ?></div>
         </div>
     </div>
 
@@ -108,9 +112,9 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <i class="fas fa-file-alt"></i>
         </div>
         <div class="stat-content">
-            <h3><?= $total_materials ?></h3>
-            <p>Materi Tersedia</p>
-            <small class="text-muted">Semua kelas</small>
+            <div class="stat-value"><?= $total_materials ?></div>
+            <div class="stat-label">Materi Tersedia</div>
+            <div class="stat-description">Semua kelas</div>
         </div>
     </div>
 
@@ -119,10 +123,28 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <i class="fas fa-tasks"></i>
         </div>
         <div class="stat-content">
-            <h3><?= $total_assignments ?></h3>
-            <p>Total Tugas</p>
-            <small class="text-muted">Pending & selesai</small>
+            <div class="stat-value"><?= $total_assignments ?></div>
+            <div class="stat-label">Total Tugas</div>
+            <div class="stat-description">Pending & selesai</div>
         </div>
+    </div>
+</div>
+
+<!-- Action Cards Section -->
+<div class="action-cards-grid mb-4">
+    <div class="action-card">
+        <div class="action-card-content">
+            <h5>Akses Kelas</h5>
+            <p>Masuk ke kelas dan mulai pembelajaran Anda</p>
+        </div>
+        <a href="my_classes.php" class="btn-modern btn-outline-modern">Akses Kelas</a>
+    </div>
+    <div class="action-card">
+        <div class="action-card-content">
+            <h5>Lihat Materi</h5>
+            <p>Download dan pelajari materi pembelajaran</p>
+        </div>
+        <a href="my_classes.php" class="btn-modern btn-outline-modern">Lihat Materi</a>
     </div>
 </div>
 
@@ -133,7 +155,7 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="card-modern">
             <div class="card-modern-header">
                 <h5>Jadwal Hari Ini</h5>
-                <a href="my_classes.php" class="view-all">Lihat Semua</a>
+                <a href="my_classes.php" class="view-all">Lihat Semua <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <div class="card-modern-body">
                 <?php if (count($today_schedules) > 0): ?>
@@ -167,21 +189,55 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <!-- Right Column: Pengumuman & Quick Actions -->
+    <!-- Right Column: Aktivitas & Pengumuman -->
     <div class="col-lg-4 mb-4">
-        <!-- Quick Actions -->
+        <!-- Aktivitas Terbaru -->
         <div class="card-modern mb-4">
             <div class="card-modern-header">
-                <h5>Quick Actions</h5>
+                <h5>Aktivitas Terbaru</h5>
+                <a href="#" class="view-all">Lihat Semua <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <div class="card-modern-body">
-                <div class="d-grid gap-2">
-                    <a href="my_classes.php" class="btn-modern btn-primary-modern">
-                        <i class="fas fa-book-open"></i> Lihat Semua Kelas
-                    </a>
-                    <a href="results.php" class="btn-modern btn-outline-modern">
-                        <i class="fas fa-chart-line"></i> Hasil Belajar
-                    </a>
+                <div class="activity-list">
+                    <?php 
+                    // Get recent activities - combine attendance and submissions
+                    $activity_query = "
+                        (SELECT 'presensi' as type, al.submitted_at as date, CONCAT('Presensi tersubmit - ', DATE_FORMAT(al.submitted_at, '%d/%m/%Y')) as title, al.submitted_at as sort_date
+                        FROM attendance_logs al 
+                        WHERE al.student_id = ?)
+                        UNION ALL
+                        (SELECT 'tugas' as type, s.submitted_at as date, CONCAT('Tugas dikumpulkan - ', a.title) as title, s.submitted_at as sort_date
+                        FROM submissions s
+                        JOIN assignments a ON s.assignment_id = a.id
+                        WHERE s.student_id = ?)
+                        ORDER BY sort_date DESC 
+                        LIMIT 3
+                    ";
+                    $stmt = $conn->prepare($activity_query);
+                    $stmt->execute([$student_id, $student_id]);
+                    $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    if (count($activities) > 0):
+                        foreach ($activities as $activity):
+                            $icon_class = $activity['type'] == 'presensi' ? 'fa-check' : 'fa-file-alt';
+                            $icon_bg = $activity['type'] == 'presensi' ? '#EFF6FF' : '#ECFDF5';
+                            $icon_color = $activity['type'] == 'presensi' ? '#3B82F6' : '#10B981';
+                    ?>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: <?= $icon_bg ?>; color: <?= $icon_color ?>;">
+                            <i class="fas <?= $icon_class ?>"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h6><?= htmlspecialchars($activity['title']) ?></h6>
+                            <p><?= date('d M Y, H:i', strtotime($activity['date'])) ?></p>
+                        </div>
+                    </div>
+                    <?php 
+                        endforeach;
+                    else:
+                    ?>
+                    <p class="text-muted mb-0">Belum ada aktivitas terbaru.</p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -190,19 +246,18 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="card-modern">
             <div class="card-modern-header">
                 <h5>Pengumuman</h5>
+                <a href="#" class="view-all">Lihat Semua <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
             <div class="card-modern-body">
                 <?php if (count($announcements) > 0): ?>
                     <?php foreach ($announcements as $info): ?>
-                    <div class="list-item-modern">
-                        <div class="list-item-icon" style="background: #FEF3C7; color: #F59E0B;">
+                    <div class="announcement-item">
+                        <div class="announcement-icon" style="background: #FEF3C7; color: #F59E0B;">
                             <i class="fas fa-bullhorn"></i>
                         </div>
-                        <div class="list-item-content">
+                        <div class="announcement-content">
                             <h6><?= htmlspecialchars($info['title']) ?></h6>
-                            <p style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
-                                <?= htmlspecialchars(substr($info['content'], 0, 80)) ?>...
-                            </p>
+                            <p><?= htmlspecialchars(substr($info['content'], 0, 60)) ?>...</p>
                             <small class="text-muted"><?= date('d M Y', strtotime($info['created_at'])) ?></small>
                         </div>
                     </div>

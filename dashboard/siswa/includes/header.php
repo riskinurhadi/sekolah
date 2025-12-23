@@ -28,27 +28,38 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'siswa' && $_SESSION['ro
         <!-- Top Navbar -->
         <div class="top-navbar">
             <div class="top-navbar-left">
-                <span class="top-logo">SmartLearn</span>
                 <div class="search-bar">
-                    <input type="text" placeholder="Search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Search...">
                 </div>
             </div>
             <div class="navbar-actions">
                 <button class="btn-modern btn-primary-modern d-none d-md-inline-flex">
                     <i class="fas fa-plus"></i> Mulai Belajar
                 </button>
-                <button class="icon-btn">
+                <button class="icon-btn notification-btn">
                     <i class="far fa-bell"></i>
+                    <span class="notification-dot"></span>
                 </button>
-                <div class="user-profile">
+                <button class="icon-btn d-none d-md-flex">
+                    <i class="far fa-comment"></i>
+                </button>
+                <div class="user-profile dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="user-avatar">
                         <?= strtoupper(substr($_SESSION['full_name'], 0, 2)) ?>
                     </div>
-                    <div class="user-info">
+                    <div class="user-info d-none d-md-block">
                         <h6><?= htmlspecialchars($_SESSION['full_name']); ?></h6>
                         <p>Siswa</p>
                     </div>
+                    <i class="fas fa-chevron-down dropdown-arrow ms-2 d-none d-md-inline"></i>
                 </div>
+                <ul class="dropdown-menu dropdown-menu-end user-dropdown">
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profil Saya</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Pengaturan</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../../logout.php"><i class="fas fa-sign-out-alt me-2"></i> Keluar</a></li>
+                </ul>
             </div>
         </div>
 
