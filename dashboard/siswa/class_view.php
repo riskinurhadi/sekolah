@@ -85,11 +85,11 @@ $needs_attendance = $active_session->rowCount() > 0;
 
     <div class="row">
         <div class="col-md-8">
-            <div class="card card-custom mb-4">
-                <div class="card-header bg-white">
+            <div class="card-modern mb-4">
+                <div class="card-modern-header">
                     <h5 class="mb-0">Materi Pelajaran</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-modern-body">
                     <?php if (count($materials) > 0): ?>
                         <div class="list-group">
                             <?php foreach ($materials as $material): ?>
@@ -99,7 +99,7 @@ $needs_attendance = $active_session->rowCount() > 0;
                                     <small><?= date('d M Y', strtotime($material['created_at'])) ?></small>
                                 </div>
                                 <p class="mb-1 small text-muted"><?= htmlspecialchars($material['description']) ?></p>
-                                <a href="../../uploads/materials/<?= $material['file_path'] ?>" class="btn btn-sm btn-outline-primary mt-2" download>Download</a>
+                                <a href="../../uploads/materials/<?= $material['file_path'] ?>" class="btn-modern btn-outline-modern mt-2" download>Download</a>
                             </div>
                             <?php endforeach; ?>
                         </div>
@@ -111,18 +111,18 @@ $needs_attendance = $active_session->rowCount() > 0;
         </div>
 
         <div class="col-md-4">
-            <div class="card card-custom mb-4">
-                <div class="card-header bg-white">
+            <div class="card-modern mb-4">
+                <div class="card-modern-header">
                     <h5 class="mb-0">Presensi Harian</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-modern-body">
                     <?php if ($needs_attendance): ?>
                         <p>Silahkan masukkan kode presensi yang diberikan oleh guru.</p>
                         <form method="POST">
                             <div class="mb-3">
                                 <input type="text" name="attendance_code" class="form-control" placeholder="Masukkan Kode" required>
                             </div>
-                            <button type="submit" name="submit_attendance" class="btn btn-navy w-100">Submit Presensi</button>
+                            <button type="submit" name="submit_attendance" class="btn-modern btn-primary-modern w-100">Submit Presensi</button>
                         </form>
                     <?php else: ?>
                         <div class="alert alert-info mb-0">
@@ -132,11 +132,11 @@ $needs_attendance = $active_session->rowCount() > 0;
                 </div>
             </div>
             
-            <div class="card card-custom">
-                <div class="card-header bg-white">
+            <div class="card-modern">
+                <div class="card-modern-header">
                     <h5 class="mb-0">Tugas & Ujian</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-modern-body">
                     <p class="text-muted small">Fitur tugas dan ujian akan segera hadir.</p>
                 </div>
             </div>

@@ -23,14 +23,14 @@ $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="row">
         <?php foreach ($schedules as $schedule): ?>
         <div class="col-md-4 mb-4">
-            <div class="card card-custom h-100">
-                <div class="card-body">
+            <div class="card-modern h-100">
+                <div class="card-modern-body">
                     <h5 class="card-title"><?= htmlspecialchars($schedule['subject_name']) ?></h5>
                     <p class="card-text text-muted">
                         <i class="fas fa-chalkboard-teacher me-2"></i> <?= htmlspecialchars($schedule['teacher_name']) ?><br>
                         <i class="fas fa-clock me-2"></i> <?= $schedule['day_of_week'] ?>, <?= date('H:i', strtotime($schedule['start_time'])) ?>
                     </p>
-                    <a href="class_view.php?schedule_id=<?= $schedule['schedule_id'] ?>" class="btn btn-navy w-100">Lihat Kelas</a>
+                    <a href="class_view.php?schedule_id=<?= $schedule['schedule_id'] ?>" class="btn-modern btn-primary-modern w-100">Lihat Kelas</a>
                 </div>
             </div>
         </div>

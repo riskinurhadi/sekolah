@@ -71,10 +71,7 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p>Selamat datang kembali, <?= htmlspecialchars($_SESSION['full_name']) ?>! 👋</p>
     </div>
     <div class="page-header-right">
-        <div class="date-picker-modern">
-            <i class="far fa-calendar-alt"></i>
-            <span><?= date('d/m/Y') ?> - <?= date('d/m/Y', strtotime('+7 days')) ?></span>
-        </div>
+        
     </div>
 </div>
 
@@ -85,9 +82,9 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Stats Cards -->
 <div class="stat-cards-grid-modern">
-    <div class="stat-card-modern stat-blue">
+    <div class="stat-card-modern">
         <div class="stat-icon-modern blue">
-            <i class="fas fa-book"></i>
+            <i class="fas fa-book-open"></i>
         </div>
         <div class="stat-content">
             <div class="stat-value"><?= $total_subjects ?></div>
@@ -96,9 +93,9 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <div class="stat-card-modern stat-purple">
+    <div class="stat-card-modern">
         <div class="stat-icon-modern purple">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-user-check"></i>
         </div>
         <div class="stat-content">
             <div class="stat-value"><?= $total_presence ?></div>
@@ -107,9 +104,9 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <div class="stat-card-modern stat-green">
+    <div class="stat-card-modern">
         <div class="stat-icon-modern green">
-            <i class="fas fa-file-alt"></i>
+            <i class="fas fa-folder-open"></i>
         </div>
         <div class="stat-content">
             <div class="stat-value"><?= $total_materials ?></div>
@@ -118,9 +115,9 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <div class="stat-card-modern stat-orange">
+    <div class="stat-card-modern">
         <div class="stat-icon-modern orange">
-            <i class="fas fa-tasks"></i>
+            <i class="fas fa-clipboard-list"></i>
         </div>
         <div class="stat-content">
             <div class="stat-value"><?= $total_assignments ?></div>
@@ -130,7 +127,6 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<!-- Action Cards Section -->
 <div class="action-cards-grid mb-4">
     <div class="action-card">
         <div class="action-card-content">
@@ -161,8 +157,8 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php if (count($today_schedules) > 0): ?>
                     <?php foreach ($today_schedules as $schedule): ?>
                     <div class="list-item-modern">
-                        <div class="list-item-icon" style="background: #EFF6FF; color: #3B82F6;">
-                            <i class="fas fa-chalkboard-teacher"></i>
+                        <div class="list-item-icon" style="background: #e3f2fd; color: #1976d2;">
+                            <i class="fas fa-school"></i>
                         </div>
                         <div class="list-item-content">
                             <h6><?= htmlspecialchars($schedule['subject_name']) ?></h6>
@@ -220,8 +216,8 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     if (count($activities) > 0):
                         foreach ($activities as $activity):
                             $icon_class = $activity['type'] == 'presensi' ? 'fa-check' : 'fa-file-alt';
-                            $icon_bg = $activity['type'] == 'presensi' ? '#EFF6FF' : '#ECFDF5';
-                            $icon_color = $activity['type'] == 'presensi' ? '#3B82F6' : '#10B981';
+                            $icon_bg = $activity['type'] == 'presensi' ? '#e3f2fd' : '#e8f5e9';
+                            $icon_color = $activity['type'] == 'presensi' ? '#1976d2' : '#388e3c';
                     ?>
                     <div class="activity-item">
                         <div class="activity-icon" style="background: <?= $icon_bg ?>; color: <?= $icon_color ?>;">
@@ -252,7 +248,7 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php if (count($announcements) > 0): ?>
                     <?php foreach ($announcements as $info): ?>
                     <div class="announcement-item">
-                        <div class="announcement-icon" style="background: #FEF3C7; color: #F59E0B;">
+                        <div class="announcement-icon" style="background: #fff3e0; color: #f57c00;">
                             <i class="fas fa-bullhorn"></i>
                         </div>
                         <div class="announcement-content">
