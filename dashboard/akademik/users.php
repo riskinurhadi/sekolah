@@ -10,27 +10,10 @@ if (isset($_GET['delete'])) {
     echo "<script>window.location='users.php';</script>";
 }
 
-// Fetch Users
-$search = $_GET['search'] ?? '';
-$role_filter = $_GET['role'] ?? '';
-
-$query = "SELECT u.*, c.class_name FROM users u LEFT JOIN classes c ON u.class_id = c.id WHERE 1=1";
-$params = [];
-
-if ($search) {
-    $query .= " AND (u.username LIKE ? OR u.full_name LIKE ?)";
-    $params[] = "%$search%";
-    $params[] = "%$search%";
-}
-
-if ($role_filter) {
-    $query .= " AND u.role = ?";
-    $params[] = $role_filter;
-}
-
-$query .= " ORDER BY u.id DESC";
+// Fetch All Users
+$query = "SELECT u.*, c.class_name FROM users u LEFT JOIN classes c ON u.class_id = c.id ORDER BY u.id DESC";
 $stmt = $conn->prepare($query);
-$stmt->execute($params);
+$stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -43,26 +26,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <div class="card card-custom p-4">
-        <form method="GET" class="row g-3 mb-4">
-            <div class="col-md-4">
-                <input type="text" name="search" class="form-control" placeholder="Cari nama atau username..." value="<?= htmlspecialchars($search) ?>">
-            </div>
-            <div class="col-md-3">
-                <select name="role" class="form-select">
-                    <option value="">Semua Role</option>
-                    <option value="siswa" <?= $role_filter == 'siswa' ? 'selected' : '' ?>>Siswa</option>
-                    <option value="guru" <?= $role_filter == 'guru' ? 'selected' : '' ?>>Guru</option>
-                    <option value="akademik" <?= $role_filter == 'akademik' ? 'selected' : '' ?>>Akademik</option>
-                    <option value="kepala_sekolah" <?= $role_filter == 'kepala_sekolah' ? 'selected' : '' ?>>Kepala Sekolah</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-secondary w-100">Filter</button>
-            </div>
-        </form>
-
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover table-striped">
                 <thead class="table-light">
                     <tr>
                         <th>ID</th>
@@ -98,4 +63,3 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <?php include 'includes/footer.php'; ?>
-
