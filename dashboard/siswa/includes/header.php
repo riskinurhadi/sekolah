@@ -27,15 +27,18 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'siswa' && $_SESSION['ro
     <div class="main-content">
         <!-- Top Navbar -->
         <div class="top-navbar">
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
+            <div class="top-navbar-left">
+                <span class="top-logo">SmartLearn</span>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                </div>
             </div>
             <div class="navbar-actions">
-                <button class="icon-btn">
-                    <i class="far fa-bell"></i>
+                <button class="btn-modern btn-primary-modern d-none d-md-inline-flex">
+                    <i class="fas fa-plus"></i> Mulai Belajar
                 </button>
                 <button class="icon-btn">
-                    <i class="far fa-comment"></i>
+                    <i class="far fa-bell"></i>
                 </button>
                 <div class="user-profile">
                     <div class="user-avatar">
@@ -46,9 +49,6 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'siswa' && $_SESSION['ro
                         <p>Siswa</p>
                     </div>
                 </div>
-                <a href="../../logout.php" class="icon-btn" title="Logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
             </div>
         </div>
 

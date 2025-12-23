@@ -81,7 +81,7 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Stats Cards -->
 <div class="stat-cards-grid">
-    <div class="stat-card-modern">
+    <div class="stat-card-modern stat-blue">
         <div class="stat-icon-modern blue">
             <i class="fas fa-book"></i>
         </div>
@@ -92,7 +92,7 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <div class="stat-card-modern">
+    <div class="stat-card-modern stat-purple">
         <div class="stat-icon-modern purple">
             <i class="fas fa-check-circle"></i>
         </div>
@@ -103,7 +103,7 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <div class="stat-card-modern">
+    <div class="stat-card-modern stat-green">
         <div class="stat-icon-modern green">
             <i class="fas fa-file-alt"></i>
         </div>
@@ -114,7 +114,7 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <div class="stat-card-modern">
+    <div class="stat-card-modern stat-orange">
         <div class="stat-icon-modern orange">
             <i class="fas fa-tasks"></i>
         </div>
